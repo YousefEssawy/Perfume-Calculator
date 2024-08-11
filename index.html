@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfume Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Perfume Calculator</h1>
+        <form id="calculator-form">
+            <label for="ratio">Concentration Ratio (%):</label>
+            <input type="number" id="ratio" required><br><br>
+
+            <label for="inputType">Input Type:</label>
+            <select id="inputType" required>
+                <option value="oil">Oil Amount</option>
+                <option value="alcohol">Alcohol Amount</option>
+                <option value="total">Total Amount</option>
+            </select><br><br>
+
+            <label for="amount">Amount:</label>
+            <input type="number" id="amount" required><br><br>
+
+            <label for="unit">Unit:</label>
+            <select id="unit">
+                <option value="ml">ml</option>
+                <option value="grams">grams</option>
+            </select><br><br>
+
+            <button type="button" onclick="calculate()">Calculate</button>
+            <button type="button" onclick="clearFields()">Clear</button>
+        </form>
+
+        <div id="results">
+            <p id="oilMl"></p>
+            <p id="oilG"></p>
+            <p id="alcoholMl"></p>
+            <p id="alcoholG"></p>
+            <p id="totalAmount"></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
