@@ -5,44 +5,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfume Calculator</title>
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 
-<body>
-    <div class="container">
-        <h1>Perfume Calculator</h1>
-        <form id="calculator-form">
-            <label for="ratio">Concentration Ratio (%):</label>
-            <input type="number" id="ratio" required><br><br>
+<body class="bg-gradient-to-r from-purple-100 to-indigo-100 min-h-screen flex items-center justify-center">
+    <div class="max-w-4xl w-full space-y-6">
+        <!-- Form Card -->
+        <div class="bg-white shadow-xl rounded-lg overflow-hidden p-8">
+            <h1 class="text-3xl font-bold text-center text-indigo-800 mb-6">Perfume Calculator</h1>
 
-            <label for="inputType">Input Type:</label>
-            <select id="inputType" required>
-                <option value="oil">Oil Amount</option>
-                <option value="alcohol">Alcohol Amount</option>
-                <option value="total">Total Amount</option>
-            </select><br><br>
+            <form id="calculator-form" class="space-y-6">
+                <!-- Concentration Ratio -->
+                <div>
+                    <label for="ratio" class="block text-sm font-medium text-gray-700">Concentration Ratio (%)</label>
+                    <div class="mt-1 flex rounded-md shadow-sm">
+                        <input type="number" id="ratio" class="flex-1 p-3 border border-gray-300 rounded-l-md focus:ring-indigo-500 focus:border-indigo-500" placeholder="e.g., 20" required>
+                        <span class="inline-flex items-center px-4 bg-gray-100 border border-l-0 border-gray-300 rounded-r-md text-gray-500">%</span>
+                    </div>
+                </div>
 
-            <label for="amount">Amount:</label>
-            <input type="number" id="amount" required><br><br>
+                <!-- Input Type -->
+                <div>
+                    <label for="inputType" class="block text-sm font-medium text-gray-700">Input Type</label>
+                    <select id="inputType" class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500" required>
+                        <option value="oil">Oil Amount</option>
+                        <option value="alcohol">Alcohol Amount</option>
+                        <option value="total">Total Amount</option>
+                    </select>
+                </div>
 
-            <label for="unit">Unit:</label>
-            <select id="unit">
-                <option value="ml">ml</option>
-                <option value="grams">grams</option>
-            </select><br><br>
+                <!-- Amount -->
+                <div>
+                    <label for="amount" class="block text-sm font-medium text-gray-700">Amount</label>
+                    <input type="number" id="amount" class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500" placeholder="e.g., 100" required>
+                </div>
 
-            <button type="button" onclick="calculate()">Calculate</button>
-            <button type="button" onclick="clearFields()">Clear</button>
-        </form>
+                <!-- Unit -->
+                <div>
+                    <label for="unit" class="block text-sm font-medium text-gray-700">Unit</label>
+                    <select id="unit" class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                        <option value="ml">ml</option>
+                        <option value="grams">grams</option>
+                    </select>
+                </div>
 
-        <div id="results">
-            <p id="oilMl"></p>
-            <p id="oilG"></p>
-            <p id="alcoholMl"></p>
-            <p id="alcoholG"></p>
-            <p id="totalAmount"></p>
+                <!-- Buttons -->
+                <div class="flex space-x-4">
+                    <button type="button" onclick="calculate()" class="flex-1 px-6 py-3 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition duration-300">Calculate</button>
+                    <button type="button" onclick="clearFields()" class="flex-1 px-6 py-3 bg-gray-600 text-white rounded-md hover:bg-gray-700 transition duration-300">Clear</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Results Card -->
+        <div id="results" class="bg-white shadow-xl rounded-lg overflow-hidden p-8">
+            <h2 class="text-2xl font-bold text-center text-indigo-800 mb-6">Results</h2>
+            <div class="space-y-4">
+                <p id="oilMl" class="text-lg text-gray-700"><span class="font-semibold">Oil (ml):</span> <span class="text-indigo-600">0</span></p>
+                <p id="oilG" class="text-lg text-gray-700"><span class="font-semibold">Oil (grams):</span> <span class="text-indigo-600">0</span></p>
+                <p id="alcoholMl" class="text-lg text-gray-700"><span class="font-semibold">Alcohol (ml):</span> <span class="text-indigo-600">0</span></p>
+                <p id="alcoholG" class="text-lg text-gray-700"><span class="font-semibold">Alcohol (grams):</span> <span class="text-indigo-600">0</span></p>
+                <p id="totalAmount" class="text-lg text-gray-700"><span class="font-semibold">Total Amount:</span> <span class="text-indigo-600">0</span></p>
+            </div>
         </div>
     </div>
+
     <script src="script.js"></script>
 </body>
 
